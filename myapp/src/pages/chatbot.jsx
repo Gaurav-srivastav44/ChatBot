@@ -24,9 +24,10 @@ export default function Chatbot() {
     setInput("");
     setLoading(true);
     try {
-      const res = await axios.post("https://your-backend.onrender.com/api/chat", {
-        message: input
-      });
+      const res = await axios.post("https://chatbot-ppin.onrender.com/api/chat", {
+  message: input,
+});
+
       setMessages((prev) => [...prev, { sender: "bot", text: res.data.reply || "No response from server." }]);
     }
     catch {
