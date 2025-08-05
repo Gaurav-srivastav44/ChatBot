@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { React,useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import bgImage from './bg1.jpg';
 import bgImage1 from './bg2.jpg';
 import { GoogleLogin } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -72,8 +71,6 @@ export default function Login() {
           <GoogleLogin
             onSuccess={async (credentialResponse) => {
           try {
-            const decoded = jwtDecode(credentialResponse.credential);
-            const email = decoded.email;
               navigate("/chat");
             }
           catch (error) {
